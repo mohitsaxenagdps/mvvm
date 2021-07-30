@@ -18,14 +18,16 @@ class MainActivity : AppCompatActivity() {
 
         viewModelFactory = MainActivityViewModelFactory(25)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainActivityViewModel::class.java)
+        binding.myViewModel = viewModel
+        binding.lifecycleOwner = this
 
-        viewModel.totalSum.observe(this, {
-            binding.textView.text = it.toString()
-        })
+//        viewModel.totalSum.observe(this, {
+//            binding.textView.text = it.toString()
+//        })
 
-        binding.add.setOnClickListener{
-            viewModel.add(binding.editText.text.toString().toInt())
-        }
+//        binding.add.setOnClickListener{
+//            viewModel.add(binding.editText.text.toString().toInt())
+//        }
 
     }
 }
